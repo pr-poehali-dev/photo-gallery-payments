@@ -6,38 +6,38 @@ import Icon from '@/components/ui/icon';
 const photos = [
   {
     id: 1,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/78596907-2984-4e1d-aabe-4acc09056f6d.jpg',
-    title: 'Abstract Geometry',
+    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/1b0ec907-74f3-4b47-9492-970692472080.jpg',
+    title: 'Forest Path',
     price: 149
   },
   {
     id: 2,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/83f7e4cc-a471-44fd-89b0-000d908044f4.jpg',
-    title: 'Golden Mountains',
+    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/d7068a7f-e72b-40cc-804d-782a6af91df6.jpg',
+    title: 'Liquid Colors',
     price: 199
   },
   {
     id: 3,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/0718ff76-671f-4f19-8331-89edc8ac273a.jpg',
-    title: 'Urban Architecture',
+    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/758e6578-30fe-4e20-a44c-a3251bd25ea1.jpg',
+    title: 'White Architecture',
     price: 179
   },
   {
     id: 4,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/78596907-2984-4e1d-aabe-4acc09056f6d.jpg',
-    title: 'Purple Dreams',
+    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/1b0ec907-74f3-4b47-9492-970692472080.jpg',
+    title: 'Morning Mist',
     price: 159
   },
   {
     id: 5,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/83f7e4cc-a471-44fd-89b0-000d908044f4.jpg',
-    title: 'Misty Peaks',
+    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/d7068a7f-e72b-40cc-804d-782a6af91df6.jpg',
+    title: 'Abstract Flow',
     price: 189
   },
   {
     id: 6,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/0718ff76-671f-4f19-8331-89edc8ac273a.jpg',
-    title: 'Glass Reflections',
+    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/758e6578-30fe-4e20-a44c-a3251bd25ea1.jpg',
+    title: 'Modern Design',
     price: 169
   }
 ];
@@ -46,8 +46,7 @@ export default function Index() {
   const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null);
   const [showPayment, setShowPayment] = useState(false);
 
-  const handleBuyClick = (photo: typeof photos[0]) => {
-    setSelectedPhoto(photo);
+  const handleBuyClick = () => {
     setShowPayment(true);
   };
 
@@ -63,7 +62,7 @@ export default function Index() {
       </header>
 
       <main className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16">
           {photos.map((photo, index) => (
             <div
               key={photo.id}
@@ -81,20 +80,43 @@ export default function Index() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   <h3 className="text-2xl font-bold mb-2">{photo.title}</h3>
-                  <p className="text-3xl font-bold text-primary mb-4">${photo.price}</p>
-                  <Button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleBuyClick(photo);
-                    }}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  >
-                    Buy Now
-                  </Button>
+                  <p className="text-3xl font-bold text-primary">${photo.price}</p>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-2xl mx-auto mt-20 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Purchase?</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Choose your preferred payment method
+          </p>
+          <div className="space-y-4">
+            <Button
+              className="w-full h-16 bg-[#0070ba] hover:bg-[#003087] text-white font-semibold text-lg transition-all hover-scale"
+              onClick={handleBuyClick}
+            >
+              <Icon name="CreditCard" size={24} className="mr-3" />
+              Pay with PayPal
+            </Button>
+
+            <Button
+              className="w-full h-16 bg-[#f7931a] hover:bg-[#e68317] text-white font-semibold text-lg transition-all hover-scale"
+              onClick={handleBuyClick}
+            >
+              <Icon name="Bitcoin" size={24} className="mr-3" />
+              Pay with Bitcoin
+            </Button>
+
+            <Button
+              className="w-full h-16 bg-[#627eea] hover:bg-[#4a5bb8] text-white font-semibold text-lg transition-all hover-scale"
+              onClick={handleBuyClick}
+            >
+              <Icon name="Wallet" size={24} className="mr-3" />
+              Pay with Ethereum
+            </Button>
+          </div>
         </div>
       </main>
 
@@ -113,13 +135,6 @@ export default function Index() {
                 />
                 <div className="flex items-center justify-between">
                   <p className="text-4xl font-bold text-primary">${selectedPhoto.price}</p>
-                  <Button
-                    onClick={() => handleBuyClick(selectedPhoto)}
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8"
-                  >
-                    Purchase
-                  </Button>
                 </div>
               </div>
             </>
@@ -130,53 +145,19 @@ export default function Index() {
       <Dialog open={showPayment} onOpenChange={setShowPayment}>
         <DialogContent className="max-w-md bg-card">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Choose Payment Method</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">Contact Us</DialogTitle>
           </DialogHeader>
-          {selectedPhoto && (
-            <div className="space-y-6">
-              <div className="p-4 bg-muted/30 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Selected Photo</p>
-                <p className="text-xl font-bold">{selectedPhoto.title}</p>
-                <p className="text-3xl font-bold text-primary mt-2">${selectedPhoto.price}</p>
-              </div>
-
-              <div className="space-y-3">
-                <Button
-                  className="w-full h-16 bg-[#0070ba] hover:bg-[#003087] text-white font-semibold text-lg transition-all hover-scale"
-                  onClick={() => {
-                    window.open('https://paypal.com', '_blank');
-                  }}
-                >
-                  <Icon name="CreditCard" size={24} className="mr-3" />
-                  Pay with PayPal
-                </Button>
-
-                <Button
-                  className="w-full h-16 bg-[#f7931a] hover:bg-[#e68317] text-white font-semibold text-lg transition-all hover-scale"
-                  onClick={() => {
-                    window.open('https://bitcoin.org', '_blank');
-                  }}
-                >
-                  <Icon name="Bitcoin" size={24} className="mr-3" />
-                  Pay with Bitcoin
-                </Button>
-
-                <Button
-                  className="w-full h-16 bg-[#627eea] hover:bg-[#4a5bb8] text-white font-semibold text-lg transition-all hover-scale"
-                  onClick={() => {
-                    window.open('https://ethereum.org', '_blank');
-                  }}
-                >
-                  <Icon name="Wallet" size={24} className="mr-3" />
-                  Pay with Ethereum
-                </Button>
-              </div>
-
-              <p className="text-xs text-muted-foreground text-center">
-                Secure checkout • Your payment information is encrypted
-              </p>
-            </div>
-          )}
+          <div className="space-y-4">
+            <p className="text-center text-muted-foreground">
+              Please contact us to complete your purchase. We'll guide you through the payment process.
+            </p>
+            <Button
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => setShowPayment(false)}
+            >
+              Close
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
 
