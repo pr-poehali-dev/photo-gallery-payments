@@ -77,12 +77,7 @@ export default function Index() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-2xl font-bold mb-2">{photo.title}</h3>
-                  <p className="text-3xl font-bold text-primary">${photo.price}</p>
-                </div>
-              </div>
+
             </div>
           ))}
         </div>
@@ -124,18 +119,12 @@ export default function Index() {
         <DialogContent className="max-w-4xl bg-card">
           {selectedPhoto && (
             <>
-              <DialogHeader>
-                <DialogTitle className="text-3xl font-bold">{selectedPhoto.title}</DialogTitle>
-              </DialogHeader>
               <div className="space-y-6">
                 <img
                   src={selectedPhoto.url}
                   alt={selectedPhoto.title}
                   className="w-full rounded-lg shadow-xl animate-scale-in"
                 />
-                <div className="flex items-center justify-between">
-                  <p className="text-4xl font-bold text-primary">${selectedPhoto.price}</p>
-                </div>
               </div>
             </>
           )}
