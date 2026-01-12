@@ -54,10 +54,10 @@ export default function Index() {
     <div className="min-h-screen bg-background">
       <header className="py-12 px-4 text-center border-b border-border/50">
         <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
-          Art Gallery
+          AHLCONTENT
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-          Discover unique digital art pieces. Own your favorite photograph today.
+          Over 1000+ Ashley files available on Mega link.
         </p>
       </header>
 
@@ -163,7 +163,7 @@ export default function Index() {
 
       <footer className="py-8 px-4 text-center border-t border-border/50 mt-20">
         <p className="text-sm text-muted-foreground">
-          © 2024 Art Gallery. All photographs are original works.
+          © 2024 AHLCONTENT. All content is original.
         </p>
       </footer>
     </div>
