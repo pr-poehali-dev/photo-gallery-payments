@@ -32,9 +32,15 @@ const photos = [
 
 export default function Index() {
   const [showPayment, setShowPayment] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<'paypal' | 'usdt' | null>(null);
 
-  const handleBuyClick = () => {
+  const handleBuyClick = (method: 'paypal' | 'usdt') => {
+    setPaymentMethod(method);
     setShowPayment(true);
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
   };
 
   return (
@@ -73,26 +79,18 @@ export default function Index() {
           <div className="space-y-4">
             <Button
               className="w-full h-16 bg-[#0070ba] hover:bg-[#003087] text-white font-semibold text-lg transition-all hover-scale"
-              onClick={handleBuyClick}
+              onClick={() => handleBuyClick('paypal')}
             >
               <Icon name="CreditCard" size={24} className="mr-3" />
               Pay with PayPal
             </Button>
 
             <Button
-              className="w-full h-16 bg-[#f7931a] hover:bg-[#e68317] text-white font-semibold text-lg transition-all hover-scale"
-              onClick={handleBuyClick}
-            >
-              <Icon name="Bitcoin" size={24} className="mr-3" />
-              Pay with Bitcoin
-            </Button>
-
-            <Button
-              className="w-full h-16 bg-[#627eea] hover:bg-[#4a5bb8] text-white font-semibold text-lg transition-all hover-scale"
-              onClick={handleBuyClick}
+              className="w-full h-16 bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold text-lg transition-all hover-scale"
+              onClick={() => handleBuyClick('usdt')}
             >
               <Icon name="Wallet" size={24} className="mr-3" />
-              Pay with Ethereum
+              Pay with USDT (TRC20)
             </Button>
           </div>
         </div>
@@ -101,14 +99,52 @@ export default function Index() {
       <Dialog open={showPayment} onOpenChange={setShowPayment}>
         <DialogContent className="max-w-md bg-card">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Contact Us</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">
+              {paymentMethod === 'paypal' ? 'PayPal Payment' : 'USDT Payment'}
+            </DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <p className="text-center text-muted-foreground">
-              Please contact us to complete your purchase. We'll guide you through the payment process.
-            </p>
+            {paymentMethod === 'paypal' && (
+              <>
+                <p className="text-center text-muted-foreground">
+                  Send payment to the following PayPal email:
+                </p>
+                <div className="p-4 bg-muted/30 rounded-lg">
+                  <p className="text-center font-mono text-lg break-all">
+                    zoid.ketevan@gmail.com
+                  </p>
+                </div>
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => copyToClipboard('zoid.ketevan@gmail.com')}
+                >
+                  <Icon name="Copy" size={20} className="mr-2" />
+                  Copy Email
+                </Button>
+              </>
+            )}
+            {paymentMethod === 'usdt' && (
+              <>
+                <p className="text-center text-muted-foreground">
+                  Send USDT (TRC20) to the following address:
+                </p>
+                <div className="p-4 bg-muted/30 rounded-lg">
+                  <p className="text-center font-mono text-sm break-all">
+                    TEKSxVVfgdppWUpBYKdUeY9huuy5BpxxTg
+                  </p>
+                </div>
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => copyToClipboard('TEKSxVVfgdppWUpBYKdUeY9huuy5BpxxTg')}
+                >
+                  <Icon name="Copy" size={20} className="mr-2" />
+                  Copy Address
+                </Button>
+              </>
+            )}
             <Button
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              variant="outline"
+              className="w-full"
               onClick={() => setShowPayment(false)}
             >
               Close
