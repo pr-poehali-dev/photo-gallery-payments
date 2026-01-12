@@ -6,38 +6,38 @@ import Icon from '@/components/ui/icon';
 const photos = [
   {
     id: 1,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/1b0ec907-74f3-4b47-9492-970692472080.jpg',
-    title: 'Forest Path',
+    url: 'https://storage.imgbly.com/imgbly/9H2fwivq4l.jpg',
+    title: 'Photo 1',
     price: 149
   },
   {
     id: 2,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/d7068a7f-e72b-40cc-804d-782a6af91df6.jpg',
-    title: 'Liquid Colors',
+    url: 'https://storage.imgbly.com/imgbly/Gukeh9sUZP.jpg',
+    title: 'Photo 2',
     price: 199
   },
   {
     id: 3,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/758e6578-30fe-4e20-a44c-a3251bd25ea1.jpg',
-    title: 'White Architecture',
+    url: 'https://storage.imgbly.com/imgbly/sTyjabUdnu.jpg',
+    title: 'Photo 3',
     price: 179
   },
   {
     id: 4,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/1b0ec907-74f3-4b47-9492-970692472080.jpg',
-    title: 'Morning Mist',
+    url: 'https://storage.imgbly.com/imgbly/2TF1h0wTXx.jpg',
+    title: 'Photo 4',
     price: 159
   },
   {
     id: 5,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/d7068a7f-e72b-40cc-804d-782a6af91df6.jpg',
-    title: 'Abstract Flow',
+    url: 'https://storage.imgbly.com/imgbly/orNyXFLUZQ.jpg',
+    title: 'Photo 5',
     price: 189
   },
   {
     id: 6,
-    url: 'https://cdn.poehali.dev/projects/d6d56660-c62a-4cbd-9f4f-a0e52fa52238/files/758e6578-30fe-4e20-a44c-a3251bd25ea1.jpg',
-    title: 'Modern Design',
+    url: 'https://storage.imgbly.com/imgbly/1DlPW9duDu.jpg',
+    title: 'Photo 6',
     price: 169
   }
 ];
