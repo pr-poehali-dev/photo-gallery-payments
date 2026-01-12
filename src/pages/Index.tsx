@@ -6,44 +6,31 @@ import Icon from '@/components/ui/icon';
 const photos = [
   {
     id: 1,
-    url: 'https://storage.imgbly.com/imgbly/9H2fwivq4l.jpg',
-    title: 'Photo 1',
-    price: 149
+    url: 'https://storage.imgbly.com/imgbly/9H2fwivq4l.jpg'
   },
   {
     id: 2,
-    url: 'https://storage.imgbly.com/imgbly/Gukeh9sUZP.jpg',
-    title: 'Photo 2',
-    price: 199
+    url: 'https://storage.imgbly.com/imgbly/Gukeh9sUZP.jpg'
   },
   {
     id: 3,
-    url: 'https://storage.imgbly.com/imgbly/sTyjabUdnu.jpg',
-    title: 'Photo 3',
-    price: 179
+    url: 'https://storage.imgbly.com/imgbly/sTyjabUdnu.jpg'
   },
   {
     id: 4,
-    url: 'https://storage.imgbly.com/imgbly/2TF1h0wTXx.jpg',
-    title: 'Photo 4',
-    price: 159
+    url: 'https://storage.imgbly.com/imgbly/2TF1h0wTXx.jpg'
   },
   {
     id: 5,
-    url: 'https://storage.imgbly.com/imgbly/orNyXFLUZQ.jpg',
-    title: 'Photo 5',
-    price: 189
+    url: 'https://storage.imgbly.com/imgbly/orNyXFLUZQ.jpg'
   },
   {
     id: 6,
-    url: 'https://storage.imgbly.com/imgbly/1DlPW9duDu.jpg',
-    title: 'Photo 6',
-    price: 169
+    url: 'https://storage.imgbly.com/imgbly/1DlPW9duDu.jpg'
   }
 ];
 
 export default function Index() {
-  const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null);
   const [showPayment, setShowPayment] = useState(false);
 
   const handleBuyClick = () => {
@@ -62,22 +49,18 @@ export default function Index() {
       </header>
 
       <main className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 max-w-7xl mx-auto mb-16">
           {photos.map((photo, index) => (
             <div
               key={photo.id}
-              className="group relative overflow-hidden rounded-lg bg-card shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in hover-scale cursor-pointer"
+              className="break-inside-avoid mb-6 overflow-hidden rounded-lg bg-card shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in hover-scale"
               style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => setSelectedPhoto(photo)}
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={photo.url}
-                  alt={photo.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-
+              <img
+                src={photo.url}
+                alt={`Photo ${photo.id}`}
+                className="w-full h-auto transition-transform duration-700 hover:scale-105"
+              />
             </div>
           ))}
         </div>
@@ -114,22 +97,6 @@ export default function Index() {
           </div>
         </div>
       </main>
-
-      <Dialog open={!!selectedPhoto && !showPayment} onOpenChange={(open) => !open && setSelectedPhoto(null)}>
-        <DialogContent className="max-w-4xl bg-card">
-          {selectedPhoto && (
-            <>
-              <div className="space-y-6">
-                <img
-                  src={selectedPhoto.url}
-                  alt={selectedPhoto.title}
-                  className="w-full rounded-lg shadow-xl animate-scale-in"
-                />
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
 
       <Dialog open={showPayment} onOpenChange={setShowPayment}>
         <DialogContent className="max-w-md bg-card">
